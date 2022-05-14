@@ -1,0 +1,35 @@
+{
+  "name": "orders",
+  "version": "0.0.1",
+  "description": "To manage the customer orders",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon --exec node src/app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Srav124/Orders.git"
+  },
+  "author": "srayakasukurthi61@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Srav124/Orders/issues"
+  },
+  "homepage": "https://github.com/Srav124/Orders#readme",
+  "dependencies": {
+    "axios": "0.27.2",
+    "body-parser": "1.19.0",
+    "cookie-parser": "1.4.6",
+    "dotenv": "16.0.1",
+    "ejs": "^3.1.8",
+    "es6-promise": "4.2.8",
+    "express": "4.18.1",
+    "joi": "^17.6.0",
+    "morgan": "^1.10.0",
+    "nodemon": "2.0.16",
+    "pg": "8.7.3",
+    "swagger-ui-express": "4.4.0",
+    "throw.js": "^5.0.0",
+    "yaml": "2.0.1"
+  }
+}

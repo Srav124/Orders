@@ -1,0 +1,124 @@
+swagger: "2.0"
+info:
+  title: Orders app
+  description: Sample CRUD Operations.
+  version: 0.0.1
+basePath: "/api" 
+schemes:
+  - "https"
+  - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  "/orders/list":
+    get:
+      summary: Returns a list of orders.
+      tags:
+        - Orders
+      responses:
+        '200':    # status code
+          description: A JSON array of user names
+        '500':    # status code
+          description: Server error
+  "/orders/create":
+    post:
+      summary: Create order.
+      tags:
+        - Orders
+      parameters:
+      - name: data
+        in: body
+        description: Enter Values
+        schema:
+          "$ref": "#components/schemas/create"
+      responses:
+        '200':    # status code
+          description: A JSON array of user names
+        '500':    # status code
+          description: Server error
+  "/orders/update/{id}":
+    post:
+      summary: Update order for given order id.
+      tags:
+        - Orders
+      parameters:
+      - name: id
+        in: path
+        description: Enter order Id
+        required: true
+        type: integer
+        example: 123
+      - name: data
+        in: body
+        description: Enter delivery date to update
+        schema:
+          "$ref": "#components/schemas/update"
+      responses:
+        '200':    # status code
+          description: A JSON array of user names
+        '500':    # status code
+          description: Server error
+  "/orders/delete":
+    delete:
+      summary: delete order.
+      tags:
+        - Orders
+      parameters:
+      - name: id
+        in: query
+        description: Enter order Id
+        required: true
+        type: integer
+        example: 123
+      responses:
+        '200':    # status code
+          description: A JSON array of user names
+        '500':    # status code
+          description: Server error
+  "/orders/search/{id}":
+    get:
+      summary: get order details.
+      tags:
+        - Orders
+      parameters:
+      - name: id
+        in: path
+        description: Enter order Id
+        required: true
+        type: integer
+        example: 123
+      responses:
+        '200':    # status code
+          description: A JSON array of user names
+        '500':    # status code
+          description: Server error
+
+
+components:
+  schemas:
+    create:
+      type: object
+      properties:
+        order_id:
+          type: integer
+          example: 123
+        item_name:
+          type: string
+          example: Samsung Mobile
+        cost:
+          type: integer
+          example: 4000
+        order_date:
+          type: date
+          example: 2019/05/10
+        delivery_date:
+          type: date
+          example: 2019/05/15
+    update:
+      type: object
+      properties:
+        delivery_date:
+          type: date
+          example: 2019/05/15
