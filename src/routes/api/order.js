@@ -19,7 +19,7 @@ const Model = new model.Orders();
 
 const getAllOrders = async function(req, res, next) {
     try {
-        const response = await Model.getAllOrders(pool, req);
+        const response = await Model.getAllOrders(pool, req.params.date);
         res.json(response.data);
     } catch (e) {
         next ( new errors.InternalServerError());
@@ -62,7 +62,7 @@ orderDetails = async function(req, res, next) {
 
 
 
-router.get('/list', getAllOrders);
+router.get('/list/:date', getAllOrders);
 router.post('/create', createOrder);
 router.post('/update/:id', updateOrder);
 router.delete('/delete', deleteOrder);

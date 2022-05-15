@@ -1,4 +1,5 @@
 'use strict';
+const Joi = require('joi')
 
 module.exports = {
     Orders: class {
@@ -34,9 +35,9 @@ module.exports = {
 
         }
 
-        async getAllOrders(pool) {
+        async getAllOrders(pool, date) {
 
-            const query = `select * from application.orders order by delivery_date `;
+            const query = `select * from application.orders where order_date = '${date}' `;
 
             try {
 
@@ -70,7 +71,6 @@ module.exports = {
     
                 } catch(e) {
                     console.error('Unable create orders')
-                    return 'Unable create orders'
                 }
 
         }
@@ -91,7 +91,6 @@ module.exports = {
                     
                 } catch(e) {
                     console.error('Unable create orders')
-                    return 'Unable create orders'
                 }
 
         }
@@ -110,7 +109,6 @@ module.exports = {
                     
                 } catch(e) {
                     console.error('Unable create orders')
-                    return 'Unable create orders'
                 }
 
         }
